@@ -18,10 +18,12 @@ public class EducationService {
     public EducationService(EducationRepo educationRepo) {
         this.educationRepo = educationRepo;
     }
+
     public Education addEducation(Education education){
         return educationRepo.save(education);
     }
 
+    public  Education getEducation(Long id) { return educationRepo.getById(id);}
     public List<Education> educationList() {
         return educationRepo.findAll();
     }
@@ -31,6 +33,7 @@ public class EducationService {
     public void deleteEducation(Long id) {
         educationRepo.deleteById(id);
     }
+
 
 
 }
