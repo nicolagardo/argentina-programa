@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { HeaderComponent } from './components/header/header.component';
+import { SectionComponent } from './components/section/section.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroComponent,
     ToolbarComponent,
-    HeaderComponent
+    HeaderComponent,
+    SectionComponent
   ],
   imports: [
     BrowserModule,
