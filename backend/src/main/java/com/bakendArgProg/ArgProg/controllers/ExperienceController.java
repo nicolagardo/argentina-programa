@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/experiences")
+@RequestMapping("/api/experiences")
 
 public class ExperienceController {
     private final ExperienceService experienceService;
@@ -22,7 +22,7 @@ public class ExperienceController {
         List<Experience> experience = experienceService.experienceList();
         return new ResponseEntity<>(experience, HttpStatus.OK);
     }
-    @PostMapping("")
+    @PostMapping()
     public  ResponseEntity<Experience> addExperience(@RequestBody Experience experience) {
         Experience experiencePost = experienceService.addExperience(experience);
         return new ResponseEntity<>(experiencePost, HttpStatus.CREATED);

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/skills")
+@RequestMapping("/api/skills")
 
 
 
@@ -37,7 +37,7 @@ public class SkillController {
         Skill skillPut = skService.updateSkill(skillUpdate);
         return new ResponseEntity<>(skillPut, HttpStatus.OK);
     }
-    @DeleteMapping()
+    @DeleteMapping("/{id}")
     public ResponseEntity<Skill> deleteSkill(@PathVariable("id") Long id) {
         skService.deleteSkill(id);
         return new ResponseEntity<>(HttpStatus.OK);
