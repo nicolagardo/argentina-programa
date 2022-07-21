@@ -26,7 +26,7 @@
   }
 
   .toolbar {
-    position: relative;
+    position:sticky;
     top: 0;
     left: 0;
     right: 0;
@@ -37,7 +37,11 @@
     color: white;
     font-weight: 600;
   }
+  .bienvenido {
+    margin-left: 4em;
+    font-size: 2em;
 
+  }
   .toolbar img {
     margin: 0 16px;
   }
@@ -198,7 +202,7 @@
     margin: 0;
   }
 
-  .circle-link {
+  .circle-img {
     height: 40px;
     width: 40px;
     border-radius: 2em;
@@ -265,7 +269,7 @@
 
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
-    .card-container > *:not(.circle-link) ,
+    .card-container > *:not(.circle-img) ,
     .terminal {
       width: 100%;
     }
@@ -282,6 +286,12 @@
     svg#rocket-smoke {
       right: 120px;
       transform: rotate(-5deg);
+    }
+    .bienvenido {
+      font-size: 1em;
+    }
+    .logoARGPRG {
+      width: 8em;
     }
   }
 

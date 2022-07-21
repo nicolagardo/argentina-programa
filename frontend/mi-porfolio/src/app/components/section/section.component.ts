@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from 'src/app/services/service.service';
 
 @Component({
   selector: 'app-section',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionComponent implements OnInit {
 
-  constructor() { }
+  constructor( private servicesHttp: ServiceService) { }
 
   ngOnInit(): void {
   }

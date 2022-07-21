@@ -7,6 +7,8 @@ import { HeroComponent } from './components/hero/hero.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SectionComponent } from './components/section/section.component';
+import { FotoComponent } from './components/body/foto/foto.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { SectionComponent } from './components/section/section.component';
     HeroComponent,
     ToolbarComponent,
     HeaderComponent,
-    SectionComponent
+    SectionComponent,
+    FotoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
