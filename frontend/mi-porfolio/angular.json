@@ -37,6 +37,7 @@
 							"src/styles.css"
 						],
 						"scripts": []
+						
 					},
 					"configurations": {
 						"production": {
@@ -73,12 +74,15 @@
 				},
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
+					
 					"configurations": {
 						"production": {
 							"browserTarget": "mi-porfolio:build:production"
+							
 						},
 						"development": {
 							"browserTarget": "mi-porfolio:build:development"
+							
 						}
 					},
 					"defaultConfiguration": "development"

@@ -8,10 +8,25 @@ import { ServiceService } from 'src/app/services/service.service';
   styleUrls: ['./section.component.css']
 })
 export class SectionComponent implements OnInit {
+  usuario: any =[];
 
   constructor( private servicesHttp: ServiceService) { }
 
   ngOnInit(): void {
+
+    this.servicesHttp.getData()
+    .subscribe((response: any) => {
+      this.usuario = response;
+      console.log(this.usuario);
+
+    });
+    
+    
+    
   }
+ 
+
+
+
 
 }
