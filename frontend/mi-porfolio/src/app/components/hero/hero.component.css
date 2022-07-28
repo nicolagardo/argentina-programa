@@ -10,8 +10,8 @@
 
 }
 .container img {
-    position: relative;
+    position: static;
     
-    width: 70%;
+    width: 100%;
     
 }

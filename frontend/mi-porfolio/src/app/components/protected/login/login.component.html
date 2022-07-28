@@ -1,0 +1,18 @@
+<div class="container">
+  <form >
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" [(ngModel)]="usuario.email" required="">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="pass" [(ngModel)]="usuario.password">
+      </div>
+      <div class="row">
+        
+        <button class="btn btn-primary" (click)="Ingresar()">Ingresar</button>
+      </div>
+
+  </form>
+      <a routerLink="/home" >Volver al Home</a>
+</div>
