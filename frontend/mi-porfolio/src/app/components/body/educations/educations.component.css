@@ -1,0 +1,9 @@
+.edu{
+    flex-direction: row;
+    justify-content: space-between;
+    
+    text-align: center;
+    flex: auto;
+    background-color: aqua;
+
+}

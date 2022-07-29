@@ -14,10 +14,16 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AuthComponent } from './components/protected/auth/auth.component';
 import { LoginComponent } from './components/protected/login/login.component';
 import { FormsModule } from '@angular/forms';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button'
-//INFO: MATERIAL
 
+//INFO: MATERIAL
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button'
+import {MatCardModule} from '@angular/material/card';
+import { ExperiencesComponent } from './components/body/experiences/experiences.component';
+import { SkillsComponent } from './components/body/skills/skills.component';
+import { ProjectsComponent } from './components/body/projects/projects.component';
+import { EducationsComponent } from './components/body/educations/educations.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +35,12 @@ import {MatButtonModule} from '@angular/material/button'
     AboutComponent,
     NavbarComponent,
     AuthComponent,
-    LoginComponent
+    LoginComponent,
+    ExperiencesComponent,
+    SkillsComponent,
+    ProjectsComponent,
+    EducationsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -38,7 +49,10 @@ import {MatButtonModule} from '@angular/material/button'
     FormsModule,
     MatIconModule,
     MatButtonModule,
+    MatInputModule,
+    MatCardModule,
     
+
   ],
   providers: [],
   bootstrap: [AppComponent]

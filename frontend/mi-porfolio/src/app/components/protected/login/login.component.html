@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <form >
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Email address</label>
@@ -15,4 +15,22 @@
 
   </form>
       <a routerLink="/home" >Volver al Home</a>
+</div> -->
+<div class="login form">
+  <mat-card>
+    <mat-card-content>
+      <h1>LOGIN</h1>
+      <mat-form-field class="full-width-input">
+        <input type="text" matInput placeholder="email" required>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input type="password" matInput placeholder="password" required>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary"> Login</button>
+      
+        <a routerLink="/home" type="button" color="primary">Volver al Home</a>
+      
+    </mat-card-content>
+
+  </mat-card>
 </div>
