@@ -23,7 +23,8 @@ import {MatCardModule} from '@angular/material/card';
 import { ExperiencesComponent } from './components/body/experiences/experiences.component';
 import { SkillsComponent } from './components/body/skills/skills.component';
 import { ProjectsComponent } from './components/body/projects/projects.component';
-import { EducationsComponent } from './components/body/educations/educations.component'
+import { EducationsComponent } from './components/body/educations/educations.component';
+import { BotoneraComponent } from './shared/botonera/botonera.component'
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { EducationsComponent } from './components/body/educations/educations.com
     SkillsComponent,
     ProjectsComponent,
     EducationsComponent,
+    BotoneraComponent,
 
   ],
   imports: [

@@ -16,9 +16,7 @@ export class ServiceService {
    getData(): any {
     return this.http.get(`${this.api_url}/user/id/1`)
    }
-   getDataEx(): any {
-    return this.http.get(`${this.api_url}/experiences`)
-   }
+   
    getDataEd(): any {
     return this.http.get(`${this.api_url}/educations`)
    }

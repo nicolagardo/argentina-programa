@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { response } from 'express';
+import { ExperiencesService } from 'src/app/services/experiences.service';
 import { ServiceService } from 'src/app/services/service.service';
 
 @Component({
@@ -9,9 +10,10 @@ import { ServiceService } from 'src/app/services/service.service';
 })
 export class ExperiencesComponent implements OnInit {
 experiencias: any =[]
+@Input() isAdmin!: boolean
 
-  constructor(private servHttp: ServiceService) { }
-
+  constructor(private servHttp: ExperiencesService) { }
+  
   ngOnInit(): void {
     this.servHttp.getDataEx().subscribe(
       (response:any) => {

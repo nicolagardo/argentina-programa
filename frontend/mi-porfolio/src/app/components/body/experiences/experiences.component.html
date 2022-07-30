@@ -1,9 +1,21 @@
 <div class="container">
     <div class="row">
-        <div class=" ms-auto">
-          <h1>Experiencia Laboral</h1>
+        <div class="">
+          <div class="col-md-12 titulo">
+            <h1 >Experiencia Laboral</h1>
+            <ng-container *ngIf="isAdmin">
+                
+                <app-botonera></app-botonera>
+
+              </ng-container>
+
+
+          </div>
           <div *ngFor="let exp of experiencias">
             <h2>{{exp.tituloExp}}</h2>
+            <p>{{exp.fechaInitExp}}</p>
+            <p>{{exp.fechaEndExp}}</p>
+            <p>{{exp.descriptionExp}}</p>
           </div>
         </div>
         

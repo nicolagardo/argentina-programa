@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 import { ServiceService } from 'src/app/services/service.service';
 
 
@@ -9,6 +10,7 @@ import { ServiceService } from 'src/app/services/service.service';
 })
 export class AboutComponent implements OnInit {
 usuario: any =[]
+@Input() isAdmin!: boolean
 
   constructor( private serviceHttp: ServiceService) { }
 

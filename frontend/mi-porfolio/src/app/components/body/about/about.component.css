@@ -1,0 +1,6 @@
+.titulo {
+    background-color: #f4f4f4;
+    --flex:content;
+    flex-direction:row;
+    justify-content:flex-end;
+}

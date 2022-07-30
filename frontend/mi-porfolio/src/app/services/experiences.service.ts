@@ -15,4 +15,14 @@ export class ExperiencesService {
   getDataEx(): any {
     return this.http.get(`${this.api_url}/experiences`)
    }
+   
+  postDataEx(dataBody: any): any {
+    return this.http.post(`${this.api_url}/experiences`, dataBody)
+  }
+  putDataEx(dataBody: any): any {
+    return this.http.put(`${this.api_url}/experiences`, dataBody)
+  }
+  deleteDataEx(id: number): any {
+    return this.http.delete(`${this.api_url}/experiences`)
+  }
 }

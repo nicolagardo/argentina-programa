@@ -1,8 +1,8 @@
   {{ isAdmin }} - Role
   <nav class="navbar navbar-expand-lg bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="../../../assets/APLogo-20-20.png" alt="" width="90" height="65" class="d-inline-block align-text-top">
+        <a mat-card-title class="navbar-brand" href="#">
+            <img mat-card-avatar src="../../../assets/APLogo-20-20.png" alt="" width="90" height="65" class="d-inline-block align-text-center">
             Argentina Programa
           </a>
       <a class="navbar-brand" href="#">#YoProgramo</a>
@@ -13,7 +13,7 @@
         <ul class="navbar-nav ms-auto">
           <ng-container *ngIf="isAdmin; else viewAdmin">
             <li class="nav-item">
-              <a class="nav-link active" type="submit" aria-current="page"  routerLink="/login" mat-icon-button>Login</a>
+              <a class="nav-link active" type="submit"(click)="changeAdmin()" aria-current="page"  routerLink="/login" mat-icon-button>Login</a>
             </li>
 
           </ng-container>
@@ -24,7 +24,7 @@
         </ul>
       </div>
     </div>
-    <button  >Cambiar</button>
+    
   </nav>
   <ng-template #viewAdmin>
     <li class="nav-item">

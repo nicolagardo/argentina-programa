@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
+import { EducationService } from 'src/app/services/education/education.service';
 
 @Component({
   selector: 'app-educations',
@@ -6,17 +7,23 @@ import { Component, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./educations.component.css']
 })
 export class EducationsComponent implements OnInit {
+  educations: any = []
+  @Input() isAdmin!: boolean
+  // educations : any =[
+  //   {escuela: "comercio",
+  //   ano: "2000"},
+  //   {escuela: "normal",
+  //   ano: "2020"}]
   
-  educations : any =[
-    {escuela: "comercio",
-    ano: "2000"},
-    {escuela: "normal",
-    ano: "2020"}]
-  
-    data = Object.values(this.educations)
-  constructor() { }
+  //   data = Object.values(this.educations)
+  constructor(private servHttp: EducationService) { }
 
   ngOnInit(): void {
+    this.servHttp.getDataEd().subscribe(
+      (response:any) => {
+        this.educations = response;
+      }
+    )
   }
 
 }

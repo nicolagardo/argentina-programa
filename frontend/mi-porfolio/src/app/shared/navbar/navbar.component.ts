@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,7 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  isAdmin = false;
+  @Input() isAdmin!:boolean;
   @Output() toggleSide = new  EventEmitter<void>();
   constructor() { }
 
@@ -16,6 +16,9 @@ export class NavbarComponent implements OnInit {
     console.log("LogOut");
     this.toggleSide.emit();
     
+  }
+  changeAdmin():void{
+    this.isAdmin= !this.isAdmin
   }
 
 

@@ -1,4 +1,4 @@
-import { Component, isDevMode, OnInit } from '@angular/core';
+import { Component, isDevMode, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,7 @@ import { Component, isDevMode, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'mi-porfolio';
+  //@Output() isAdmin:boolean
 
   ngOnInit(): any{
     console.log('Componente inicializado');
