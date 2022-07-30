@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="">
+            <app-foto></app-foto>
+                <div class="col-md-12 titulo">
+                    <h1>Acerca de mí</h1>
+                    <div class="">
+                        
+                        <ng-container *ngIf="isAdmin">
+                            <app-botonera></app-botonera>
+                        </ng-container>
+
+                    </div>
+                </div>
+        <h1>{{usuario.name}}</h1>
+        <h1 >{{usuario.lastname}}</h1>
+        <h2>{{usuario.descriptionUser}}</h2>
+        </div>
+        
+    </div>
+   
+</div>

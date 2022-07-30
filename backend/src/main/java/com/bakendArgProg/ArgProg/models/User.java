@@ -29,13 +29,13 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(Long id, String name, String lastname, String titleUser, String descriptionUser, String imageuser) {
+    public User(Long id, String name, String lastname, String titleUser, String descriptionUser, String imageUser) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.titleUser = titleUser;
         this.descriptionUser = descriptionUser;
-        this.imageuser = imageuser;
+        this.imageuser = imageUser;
     }
 
     public Long getId() {

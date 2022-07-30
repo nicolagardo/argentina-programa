@@ -1,0 +1,15 @@
+.edu{
+    flex-direction: row;
+    justify-content: space-between;
+    
+    text-align: center;
+    flex: auto;
+    background-color: aqua;
+
+}
+.titulo {
+    background-color: #f4f4f4;
+    --flex:content;
+    flex-direction:row;
+    justify-content:flex-end;
+}

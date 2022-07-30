@@ -1,0 +1,17 @@
+.container{
+    --margin-top: 1rem;
+    --padding: 10em;
+    text-align: center;
+    --flex-direction: column;
+    --display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+
+}
+.container img {
+    position: static;
+    
+    width: 100%;
+    
+}
