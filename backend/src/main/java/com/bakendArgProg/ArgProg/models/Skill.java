@@ -1,11 +1,9 @@
 package com.bakendArgProg.ArgProg.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "skills")
 public class Skill {
 
     @Id
@@ -24,6 +22,10 @@ public class Skill {
         this.nombreSkill = nombreSkill;
         this.imageSkill = imageSkill;
         this.percentSkill = percentSkill;
+    }
+
+    public Skill() {
+
     }
 
     public Long getIdSkill() {

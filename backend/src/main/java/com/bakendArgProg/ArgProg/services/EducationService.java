@@ -1,6 +1,7 @@
 package com.bakendArgProg.ArgProg.services;
 
 
+
 import com.bakendArgProg.ArgProg.models.Education;
 import com.bakendArgProg.ArgProg.repository.EducationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,19 +19,22 @@ public class EducationService {
     public EducationService(EducationRepo educationRepo) {
         this.educationRepo = educationRepo;
     }
+
     public Education addEducation(Education education){
         return educationRepo.save(education);
     }
 
+    public Education getEducation(Long id) { return educationRepo.getById(id);}
     public List<Education> educationList() {
         return educationRepo.findAll();
     }
-    public  Education updateEducation(Education education) {
+    public Education updateEducation(Education education) {
         return educationRepo.save(education);
     }
     public void deleteEducation(Long id) {
         educationRepo.deleteById(id);
     }
+
 
 
 }

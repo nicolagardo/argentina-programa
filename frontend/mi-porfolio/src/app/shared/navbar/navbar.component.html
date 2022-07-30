@@ -1,0 +1,36 @@
+  {{ isAdmin }} - Role
+  <nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container-fluid">
+        <a mat-card-title class="navbar-brand" href="#">
+            <img mat-card-avatar src="../../../assets/APLogo-20-20.png" alt="" width="90" height="65" class="d-inline-block align-text-center">
+            Argentina Programa
+          </a>
+      <a class="navbar-brand" href="#">#YoProgramo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto">
+          <ng-container *ngIf="isAdmin; else viewAdmin">
+            <li class="nav-item">
+              <a class="nav-link active" type="submit"(click)="changeAdmin()" aria-current="page"  routerLink="/login" mat-icon-button>Login</a>
+            </li>
+
+          </ng-container>
+         
+          
+         
+          
+        </ul>
+      </div>
+    </div>
+    
+  </nav>
+  <ng-template #viewAdmin>
+    <li class="nav-item">
+      <a class="nav-link active" type="submit" aria-current="page"  (click)="logout()"  (click)="isAdmin = !isAdmin"><button mat-icon-button >
+        <mat-icon>logout</mat-icon>
+      </button></a>
+    </li>
+    
+  </ng-template>

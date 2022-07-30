@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class=" ms-auto">
+          <div class="col-md-12">
+            <h1>Educación</h1>
+            <ng-container *ngIf="isAdmin">
+                
+              <app-botonera></app-botonera>
+
+            </ng-container>
+          </div>
+          
+          <div *ngFor="let ed of educations " class="edu">
+            <h2>Nivel: {{ed.tituloEdu}} </h2>
+            <p>Inicio: {{ed.fechaInitEdu}}</p>
+            <p>Final: {{ed.fechaEndEdu}}</p>
+            <p>Titulo: {{ed.descriptionEdu}}</p>
+          </div>
+        </div>
+        
+    </div>
+   
+</div>

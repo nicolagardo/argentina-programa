@@ -1,5 +1,8 @@
 {
-	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "3c6a8ce1-0275-4478-9553-420fb78e089f"
+  },
 	"version": 1,
 	"newProjectRoot": "projects",
 	"projects": {
@@ -31,9 +34,11 @@
 							"src/assets"
 						],
 						"styles": [
+							"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
 							"src/styles.css"
 						],
 						"scripts": []
+						
 					},
 					"configurations": {
 						"production": {
@@ -70,12 +75,15 @@
 				},
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
+					
 					"configurations": {
 						"production": {
 							"browserTarget": "mi-porfolio:build:production"
+							
 						},
 						"development": {
 							"browserTarget": "mi-porfolio:build:development"
+							
 						}
 					},
 					"defaultConfiguration": "development"
@@ -99,6 +107,7 @@
 							"src/assets"
 						],
 						"styles": [
+							"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
 							"src/styles.css"
 						],
 						"scripts": []

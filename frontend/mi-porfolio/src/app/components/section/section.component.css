@@ -1,0 +1,6 @@
+.container {
+    background-color: rosybrown;
+    padding: 1em;
+    text-align: center;
+    display: flex;
+}
