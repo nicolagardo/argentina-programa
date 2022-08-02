@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  API_URL: 'http://localhost:8090/api',
+  API_URL: 'https://api-miporfolio.herokuapp.com/api',
   firebaseConfig:{
     apiKey: "AIzaSyDTNZgkJZ61CslqcRrHCU0LCmWXtgffMvM",
     authDomain: "client-mi-porfolio.firebaseapp.com",
