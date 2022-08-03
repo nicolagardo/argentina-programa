@@ -1,23 +1,30 @@
 <div class="container">
-    <div class="row">
-        <div class=" ms-auto">
-          <div class="col-md-12">
-            <h1>Educación</h1>
-            <ng-container *ngIf="isAdmin">
-                
-              <app-botonera></app-botonera>
-
-            </ng-container>
-          </div>
-          
-          <div *ngFor="let ed of educations " class="edu">
-            <h2>Nivel: {{ed.tituloEdu}} </h2>
-            <p>Inicio: {{ed.fechaInitEdu}}</p>
-            <p>Final: {{ed.fechaEndEdu}}</p>
-            <p>Titulo: {{ed.descriptionEdu}}</p>
-          </div>
-        </div>
-        
+  <div class="row justify-content-end titulo">  
+    <div class="col-4">
+      <h1>Educación</h1>
     </div>
-   
+    <div class="col-4">
+      <ng-container *ngIf="isAdmin">
+        <app-boton-add></app-boton-add>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row my-4" *ngFor="let ed of educations">
+    <mat-card>
+
+      <div class="col">
+        <h2>Nivel: {{ed.tituloEdu}} </h2>
+        <p>Inicio: {{ed.fechaInitEdu}}</p>
+        <p>Final: {{ed.fechaEndEdu}}</p>
+        <p>Titulo: {{ed.descriptionEdu}}</p>
+      </div>
+      
+      <div class="col">
+        <ng-container *ngIf="isAdmin">
+          <app-botonera></app-botonera>  
+        </ng-container>
+      </div>
+    </mat-card>
+  </div>
 </div>

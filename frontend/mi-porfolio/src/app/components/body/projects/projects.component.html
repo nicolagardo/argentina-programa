@@ -1,13 +1,28 @@
-<div class="container">
-    <div class="row">
-        <div class=" col-md-12 titulo">
-          <h1>Proyectos</h1>
-          <ng-container *ngIf="isAdmin">
-                
-            <app-botonera></app-botonera>
 
-          </ng-container>        </div>
-        
+<div class="container">
+  <div class="row justify-content-end titulo">  
+    <div class="col-4">
+      <h1>Projects</h1>
     </div>
-   
+    <div class="col-4">
+      <ng-container *ngIf="isAdmin">
+        <app-boton-add></app-boton-add>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row align-items-start" *ngFor="let pro of projects">
+    <div class="col">
+      <h2>Nivel: {{pro.tituloEdu}} </h2>
+      <p>Inicio: {{pro.fechaInitEdu}}</p>
+      <p>Final: {{pro.fechaEndEdu}}</p>
+      <p>Titulo: {{pro.descriptionEdu}}</p>
+    </div>
+    
+    <div class="col">
+      <ng-container *ngIf="isAdmin">
+        <app-botonera></app-botonera>  
+      </ng-container>
+    </div>
+  </div>
 </div>

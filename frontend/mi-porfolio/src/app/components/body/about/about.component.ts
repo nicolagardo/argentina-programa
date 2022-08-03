@@ -11,6 +11,7 @@ import { ServiceService } from 'src/app/services/service.service';
 export class AboutComponent implements OnInit {
 usuario: any =[]
 @Input() isAdmin!: boolean
+@Input() about!: boolean
 
   constructor( private serviceHttp: ServiceService) { }
 

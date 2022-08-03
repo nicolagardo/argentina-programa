@@ -24,7 +24,10 @@ import { ExperiencesComponent } from './components/body/experiences/experiences.
 import { SkillsComponent } from './components/body/skills/skills.component';
 import { ProjectsComponent } from './components/body/projects/projects.component';
 import { EducationsComponent } from './components/body/educations/educations.component';
-import { BotoneraComponent } from './shared/botonera/botonera.component'
+import { BotoneraComponent } from './shared/botonera/botonera.component';
+import { BotonAddComponent } from './shared/boton-add/boton-add.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +45,7 @@ import { BotoneraComponent } from './shared/botonera/botonera.component'
     ProjectsComponent,
     EducationsComponent,
     BotoneraComponent,
+    BotonAddComponent,
 
   ],
   imports: [
@@ -53,6 +57,7 @@ import { BotoneraComponent } from './shared/botonera/botonera.component'
     MatButtonModule,
     MatInputModule,
     MatCardModule,
+    MatProgressBarModule
     
 
   ],

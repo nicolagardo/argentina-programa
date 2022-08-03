@@ -1,24 +1,34 @@
 <div class="container">
-    <div class="row">
-        <div class="">
-          <div class="col-md-12 titulo">
-            <h1 >Experiencia Laboral</h1>
-            <ng-container *ngIf="isAdmin">
-                
-                <app-botonera></app-botonera>
-
-              </ng-container>
-
-
-          </div>
-          <div *ngFor="let exp of experiencias">
-            <h2>{{exp.tituloExp}}</h2>
-            <p>{{exp.fechaInitExp}}</p>
-            <p>{{exp.fechaEndExp}}</p>
-            <p>{{exp.descriptionExp}}</p>
-          </div>
-        </div>
+    <div class="row justify-content-end titulo">
         
+          <div class="col-4">
+            <h1 >Experiencia Laboral</h1>          
+          </div>
+          <div class="col-4">
+            <ng-container *ngIf="isAdmin">
+              <app-boton-add></app-boton-add>
+            </ng-container>
+          </div>   
     </div>
+    <div class="row my-4 align-items-start">
+      <mat-card>
+
+        <div *ngFor="let exp of experiencias" class="col-8">
+          <h2>{{exp.tituloExp}}</h2>
+          <p>{{exp.fechaInitExp}}</p>
+          <p>{{exp.fechaEndExp}}</p>
+          <p>{{exp.descriptionExp}}</p>
+        </div>
+        <div class="col">
+          <ng-container *ngIf="isAdmin">
+            <app-botonera></app-botonera>
+          </ng-container>
+        </div>
+        <mat-card-footer>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+    
    
 </div>

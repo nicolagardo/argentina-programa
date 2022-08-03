@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProjectsComponent implements OnInit {
   @Input() isAdmin!: boolean
   constructor() { }
+  projects:any =[]
 
   ngOnInit(): void {
   }
