@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/educations")
 
-public class EducationController {
+public class  EducationController {
     private final EducationService educationService;
 
     public EducationController(EducationService educationService) {
