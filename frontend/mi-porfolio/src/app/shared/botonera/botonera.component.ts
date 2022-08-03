@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-botonera',
@@ -8,7 +8,8 @@ import { Component, OnInit, Output } from '@angular/core';
 export class BotoneraComponent implements OnInit {
   hola: string = 'hola'
   constructor() { }
-  @Output()
+  @Input() about!: boolean;
+  @Input() isAdmin!: boolean;
   ngOnInit(): void {
   }
 
