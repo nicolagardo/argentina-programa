@@ -13,7 +13,7 @@ public class User implements Serializable {
     private Long id;
     private String name;
     private String lastname;
-
+    private  String password;
     private String emailUser;
     private String titleUser;
     private String descriptionUser;
@@ -31,11 +31,21 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(Long id, String name, String lastname, String emailUser, String titleUser, String descriptionUser, String imageUser) {
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public User(Long id, String name, String lastname, String password, String emailUser, String titleUser, String descriptionUser, String imageUser) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
+        this.password = password;
         this.emailUser = emailUser;
+
         this.titleUser = titleUser;
         this.descriptionUser = descriptionUser;
         this.imageuser = imageUser;
