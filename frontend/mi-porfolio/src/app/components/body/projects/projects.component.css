@@ -1,5 +1,5 @@
 .titulo {
-    background-color: #000000;
+    --background-color: #000000;
     color: #fff;
     --flex:content;
     flex-direction:row;

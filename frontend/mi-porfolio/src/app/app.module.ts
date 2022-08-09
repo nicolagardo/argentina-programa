@@ -28,7 +28,6 @@ import { BotoneraComponent } from './shared/botonera/botonera.component';
 import { BotonAddComponent } from './shared/boton-add/boton-add.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,9 +56,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatButtonModule,
     MatInputModule,
     MatCardModule,
-    MatProgressBarModule
+    MatProgressBarModule,
     
-
   ],
   providers: [],
   bootstrap: [AppComponent]

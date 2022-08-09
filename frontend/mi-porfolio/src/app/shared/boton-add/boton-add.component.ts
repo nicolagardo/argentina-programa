@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-boton-add',
-  templateUrl: './boton-add.component.html',
+  template: `<button mat-icon-button><mat-icon color="accent">add</mat-icon></button>`,
   styleUrls: ['./boton-add.component.css']
 })
 export class BotonAddComponent implements OnInit {

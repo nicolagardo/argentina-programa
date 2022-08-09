@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
-import { User } from 'src/app/interfaces/user';
+import { User, UserResponse } from 'src/app/interfaces/user';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,12 +12,12 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
 
-  login(authData: User):Observable<User | void>{
+  login(authData: User):Observable<UserResponse | void>{
     return this.http
-    .post<User>(`${environment.API_URL}/user/auth`, authData)
+    .post<UserResponse>(`${environment.API_URL}/user/auth`, authData)
     .pipe(
-      map( (res:User) => {
-        console.log('Res->',res);
+      map( (res) => {
+        this.saveToken(res.token);
         //saveToken
       }),
       catchError((error) => this.handleError(error))
@@ -25,9 +25,15 @@ export class AuthService {
     );
   }
 
-  logout():void{}
-  private readToken():void{}
-  private saveToken():void{}
+  logout():void{
+    localStorage.removeItem('token');
+    //TODO: set userIsLogged
+
+  }
+  private checkToken():void{}
+  private saveToken(token: string):void{
+    localStorage.setItem('token', token)
+  }
 
   private handleError(err: { message: any; }):Observable<never>{
     let errorMessage = 'Error';
