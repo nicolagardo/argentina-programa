@@ -1,6 +1,6 @@
 package com.bakendArgProg.ArgProg.controllers;
 
-import com.bakendArgProg.ArgProg.models.Skill;
+import com.bakendArgProg.ArgProg.persistence.models.Skill;
 import com.bakendArgProg.ArgProg.services.SkillService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

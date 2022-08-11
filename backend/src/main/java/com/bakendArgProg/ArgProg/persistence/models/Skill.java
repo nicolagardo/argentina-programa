@@ -1,4 +1,4 @@
-package com.bakendArgProg.ArgProg.models;
+package com.bakendArgProg.ArgProg.persistence.models;
 
 import javax.persistence.*;
 

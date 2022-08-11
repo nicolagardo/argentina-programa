@@ -1,8 +1,14 @@
-package com.bakendArgProg.ArgProg.models;
+package com.bakendArgProg.ArgProg.persistence.models;
+
+import com.sun.istack.NotNull;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class User implements Serializable {
@@ -11,13 +17,28 @@ public class User implements Serializable {
     @Column(nullable = false, updatable = false)
 
     private Long id;
+    @NotNull
     private String name;
+    @NotNull
     private String lastname;
+    @NotNull
     private  String password;
+    @NotNull
+    @Column(unique = true)
+
     private String emailUser;
     private String titleUser;
     private String descriptionUser;
     private String imageuser;
+    private Set<Role> roles = new HashSet<>();
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idEdu")
     private List<Education> educationList;

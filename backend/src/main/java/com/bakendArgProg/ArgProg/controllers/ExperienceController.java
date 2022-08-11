@@ -1,6 +1,6 @@
 package com.bakendArgProg.ArgProg.controllers;
 
-import com.bakendArgProg.ArgProg.models.Experience;
+import com.bakendArgProg.ArgProg.persistence.models.Experience;
 import com.bakendArgProg.ArgProg.services.ExperienceService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

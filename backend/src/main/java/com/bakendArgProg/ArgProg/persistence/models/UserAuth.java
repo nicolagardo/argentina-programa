@@ -1,4 +1,4 @@
-package com.bakendArgProg.ArgProg.models;
+package com.bakendArgProg.ArgProg.persistence.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,6 +20,10 @@ public class UserAuth implements Serializable {
         this.token = token;
         this.id = id;
         this.role = role;
+
+    }
+
+    public UserAuth() {
 
     }
 

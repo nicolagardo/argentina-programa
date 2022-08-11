@@ -1,7 +1,6 @@
 package com.bakendArgProg.ArgProg.controllers;
 
-import com.bakendArgProg.ArgProg.models.User;
-import com.bakendArgProg.ArgProg.models.UserAuth;
+import com.bakendArgProg.ArgProg.persistence.models.User;
 import com.bakendArgProg.ArgProg.services.UserAuthService;
 import com.bakendArgProg.ArgProg.services.UserService;
 import org.springframework.http.HttpStatus;

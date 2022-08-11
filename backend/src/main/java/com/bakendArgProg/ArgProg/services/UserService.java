@@ -1,12 +1,13 @@
 package com.bakendArgProg.ArgProg.services;
 
 import com.bakendArgProg.ArgProg.exception.UserNotFoundException;
-import com.bakendArgProg.ArgProg.models.User;
-import com.bakendArgProg.ArgProg.repository.UserRepo;
+import com.bakendArgProg.ArgProg.persistence.models.User;
+import com.bakendArgProg.ArgProg.persistence.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -38,6 +39,15 @@ public class UserService {
     public User getUser(Long id) {
 
         return userRepo.findById(id).orElseThrow(() -> new UserNotFoundException("Usuario no encontrado"));
+    }
+    public Optional<User> getByEmail(String email) {
+        return userRepo.findByEmailUser(email);
+    }
+    public boolean existByEmailUser(String emailUser ) {
+        return userRepo.existsByEmail(emailUser);
+    }
+    public void save(User user) {
+        userRepo.save(user);
     }
 
 }

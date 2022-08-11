@@ -1,8 +1,8 @@
 package com.bakendArgProg.ArgProg.services;
 
 import com.bakendArgProg.ArgProg.exception.UserNotFoundException;
-import com.bakendArgProg.ArgProg.models.UserAuth;
-import com.bakendArgProg.ArgProg.repository.UserAuthRepo;
+import com.bakendArgProg.ArgProg.persistence.models.UserAuth;
+import com.bakendArgProg.ArgProg.persistence.repository.UserAuthRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

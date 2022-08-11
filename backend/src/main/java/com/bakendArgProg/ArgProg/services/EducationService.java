@@ -2,8 +2,8 @@ package com.bakendArgProg.ArgProg.services;
 
 
 
-import com.bakendArgProg.ArgProg.models.Education;
-import com.bakendArgProg.ArgProg.repository.EducationRepo;
+import com.bakendArgProg.ArgProg.persistence.models.Education;
+import com.bakendArgProg.ArgProg.persistence.repository.EducationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

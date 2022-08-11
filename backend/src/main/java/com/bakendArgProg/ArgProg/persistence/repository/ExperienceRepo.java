@@ -1,6 +1,6 @@
-package com.bakendArgProg.ArgProg.repository;
+package com.bakendArgProg.ArgProg.persistence.repository;
 
-import com.bakendArgProg.ArgProg.models.Experience;
+import com.bakendArgProg.ArgProg.persistence.models.Experience;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ExperienceRepo extends JpaRepository<Experience, Long> {
