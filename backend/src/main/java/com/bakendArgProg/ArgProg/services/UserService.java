@@ -13,6 +13,7 @@ import java.util.Optional;
 @Transactional
 public class UserService {
 
+    @Autowired
     private final UserRepo userRepo;
 
 

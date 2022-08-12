@@ -18,6 +18,7 @@ import java.io.IOException;
 public class JwtTokenFilter extends OncePerRequestFilter {
     private final static Logger logger = LoggerFactory.getLogger(JwtTokenFilter.class);
 
+
     @Autowired
     JwtProvider jwtProvider;
 

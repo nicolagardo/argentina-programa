@@ -30,6 +30,9 @@ public class User implements Serializable {
     private String titleUser;
     private String descriptionUser;
     private String imageuser;
+    @ManyToMany
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
     public Set<Role> getRoles() {
@@ -60,13 +63,15 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public User(Long id, String name, String lastname, String password, String emailUser, String titleUser, String descriptionUser, String imageUser) {
+
+
+    public User(Long id, String name, String lastname, String password, String emailUser, Set<Role> roles, String titleUser, String descriptionUser, String imageUser) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.password = password;
         this.emailUser = emailUser;
-
+        this.roles = roles;
         this.titleUser = titleUser;
         this.descriptionUser = descriptionUser;
         this.imageuser = imageUser;

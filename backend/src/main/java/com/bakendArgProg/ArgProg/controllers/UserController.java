@@ -30,20 +30,20 @@ public class UserController {
         User updateeUser=userService.editUser(user);
         return new ResponseEntity<>(updateeUser, HttpStatus.OK);
     }
-    @PostMapping("/auth")
-    public ResponseEntity<String> authUser(@RequestBody User user) {
+    //@PostMapping("/auth")
+    //public ResponseEntity<String> authUser(@RequestBody User user) {
 
         //UserAuth authUser();
         //authUser.setToken("token");
         //authUser.setMessage("Mensaje exitoso");
         //authUser.setId(1l);
         //authUser.setRole("ADMIN");
-        String pass = user.getPassword();
+        //String pass = user.getPassword();
         //UserAuth user1 = userAuthService.getUserAuth(id);
 
 
-        return new ResponseEntity<String>(pass,HttpStatus.OK);
+      //  return new ResponseEntity<String>(pass,HttpStatus.OK);
 
 
-    }
+    //}
 }
