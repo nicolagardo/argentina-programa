@@ -19,37 +19,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@RestController
-@RequestMapping("/api/auth")
-@CrossOrigin
+
 public class AuthController {
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
 
-    @Autowired
-    AuthenticationManager authenticationManager;
 
-    @Autowired
-    UserService userService;
 
-    @Autowired
-    RoleService roleService;
 
-    @Autowired
-    JwtProvider jwtProvider;
-
-    @PostMapping("/login")
-    public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUserDto loginUserDto, BindingResult bindingResult) {
-        if (bindingResult.hasErrors())
-            return new ResponseEntity("Email o contra",HttpStatus.BAD_REQUEST);
-        Authentication authentication =
-                authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUserDto.getEmail(), loginUserDto.getPassword()));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = jwtProvider.generateToken(authentication);
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        JwtDto jwtDto = new JwtDto(jwt, userDetails.getUsername(),userDetails.getAuthorities());
-
-        return new ResponseEntity<>(jwtDto, HttpStatus.OK);
-    }
 }

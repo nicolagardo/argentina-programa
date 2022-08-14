@@ -13,8 +13,10 @@ import java.util.Optional;
 @Transactional
 public class UserService {
 
-    @Autowired
+
     private final UserRepo userRepo;
+
+
 
 
     @Autowired
@@ -22,6 +24,8 @@ public class UserService {
         this.userRepo = userRepo;
 
     }
+
+
 
 
     public User addUser(User user){
@@ -45,7 +49,7 @@ public class UserService {
         return userRepo.findByEmailUser(email);
     }
     public boolean existByEmailUser(String emailUser ) {
-        return userRepo.existsByEmail(emailUser);
+        return userRepo.existsByEmailUser(emailUser);
     }
     public void save(User user) {
         userRepo.save(user);
