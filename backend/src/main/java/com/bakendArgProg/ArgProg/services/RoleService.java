@@ -17,4 +17,8 @@ public class RoleService {
     public Optional<Role> getByRoleUser(RoleUser roleUser){
         return  roleRepo.findByRoleUser(roleUser);
     }
+
+    public void save(Role role) {
+        roleRepo.save(role);
+    }
 }

@@ -1,8 +1,6 @@
 package com.bakendArgProg.ArgProg.persistence.models;
 
 import com.sun.istack.NotNull;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -30,10 +28,15 @@ public class User implements Serializable {
     private String titleUser;
     private String descriptionUser;
     private String imageuser;
+    @NotNull
     @ManyToMany
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+    public User() {
+
+    }
 
     public Set<Role> getRoles() {
         return roles;
@@ -52,7 +55,7 @@ public class User implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idSkill")
     private List<Skill> skillList;
 
-    public User() {
+    public User(String name, String nameUser, String email, String password) {
     }
 
     public String getPassword() {

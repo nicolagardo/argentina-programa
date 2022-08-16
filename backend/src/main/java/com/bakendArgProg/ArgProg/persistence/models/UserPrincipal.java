@@ -40,7 +40,7 @@ public class UserPrincipal implements UserDetails {
 //TODO: getter username no implementado
     @Override
     public String getUsername() {
-        return null;
+        return email;
     }
 
     @Override
