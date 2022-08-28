@@ -19,6 +19,12 @@ public class User implements Serializable {
     private String name;
     @NotNull
     private String lastname;
+
+
+
+    @NotNull
+    private String nameUser;
+
     @NotNull
     private  String password;
     @NotNull
@@ -78,6 +84,13 @@ public class User implements Serializable {
         this.titleUser = titleUser;
         this.descriptionUser = descriptionUser;
         this.imageuser = imageUser;
+    }
+    public String getNameUser() {
+        return nameUser;
+    }
+
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
     }
 
     public Long getId() {

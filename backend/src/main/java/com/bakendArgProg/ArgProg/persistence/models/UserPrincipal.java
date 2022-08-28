@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UserPrincipal implements UserDetails {
+public class  UserPrincipal implements UserDetails {
     private String name;
     private  String email;
     private String password;
