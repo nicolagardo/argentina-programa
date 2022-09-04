@@ -1,8 +1,13 @@
 package com.bakendArgProg.ArgProg.persistence.models;
 
-import com.sun.istack.NotNull;
+
+
+
+
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
@@ -11,17 +16,13 @@ import java.util.Set;
 @Entity
 public class User implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, updatable = false)
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
     private String name;
     @NotNull
-    private String lastname;
-
-
-
+    private String lastName;
+    @Column(unique = true)
     @NotNull
     private String nameUser;
 
@@ -29,13 +30,15 @@ public class User implements Serializable {
     private  String password;
     @NotNull
     @Column(unique = true)
-
     private String emailUser;
-    private String titleUser;
-    private String descriptionUser;
-    private String imageuser;
     @NotNull
-    @ManyToMany
+    private String titleUser;
+    @NotNull
+    private String descriptionUser;
+    @NotNull
+    private String imageUser;
+    @NotNull
+    @ManyToMany (fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
@@ -43,6 +46,7 @@ public class User implements Serializable {
     public User() {
 
     }
+
 
     public Set<Role> getRoles() {
         return roles;
@@ -61,8 +65,8 @@ public class User implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idSkill")
     private List<Skill> skillList;
 
-    public User(String name, String nameUser, String email, String password) {
-    }
+    //public User(String name, String nameUser, String email, String password) {
+    //}
 
     public String getPassword() {
         return password;
@@ -73,18 +77,17 @@ public class User implements Serializable {
     }
 
 
-
-    public User(Long id, String name, String lastname, String password, String emailUser, Set<Role> roles, String titleUser, String descriptionUser, String imageUser) {
-        this.id = id;
+    public User(String name, String lastName, String nameUser, String password, String emailUser, String titleUser, String descriptionUser, String imageUser) {
         this.name = name;
-        this.lastname = lastname;
+        this.lastName = lastName;
+        this.nameUser = nameUser;
         this.password = password;
         this.emailUser = emailUser;
-        this.roles = roles;
         this.titleUser = titleUser;
         this.descriptionUser = descriptionUser;
-        this.imageuser = imageUser;
+        this.imageUser = imageUser;
     }
+
     public String getNameUser() {
         return nameUser;
     }
@@ -110,11 +113,11 @@ public class User implements Serializable {
     }
 
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
     public void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.lastName = lastname;
     }
 
     public String getEmailUser() {
@@ -141,10 +144,10 @@ public class User implements Serializable {
     }
 
     public String getImageuser() {
-        return imageuser;
+        return imageUser;
     }
 
     public void setImageuser(String imageuser) {
-        this.imageuser = imageuser;
+        this.imageUser = imageuser;
     }
 }

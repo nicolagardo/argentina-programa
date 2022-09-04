@@ -13,17 +13,19 @@ import java.util.Optional;
 @Transactional
 public class UserService {
 
-
-    private final UserRepo userRepo;
-
-
-
-
     @Autowired
+    UserRepo userRepo;
+
+
+
+
+    /*@Autowired
     public UserService(UserRepo userRepo) {
         this.userRepo = userRepo;
 
     }
+
+     */
 
 
 
@@ -45,10 +47,12 @@ public class UserService {
 
         return userRepo.findById(id).orElseThrow(() -> new UserNotFoundException("Usuario no encontrado"));
     }
+    public Optional<User> getByNameUser(String userName) {return userRepo.findAllByNameUser(userName);}
+    public boolean existByNameUser(String nameUser) {return userRepo.existsByNameUser(nameUser);}
     public Optional<User> getByEmail(String email) {
         return userRepo.findByEmailUser(email);
     }
-    public boolean existByEmailUser(String emailUser ) {
+    public boolean existByEmail(String emailUser ) {
         return userRepo.existsByEmailUser(emailUser);
     }
     public void save(User user) {

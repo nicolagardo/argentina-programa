@@ -2,7 +2,7 @@ package com.bakendArgProg.ArgProg.security.jwt;
 
 import com.bakendArgProg.ArgProg.persistence.models.UserPrincipal;
 import io.jsonwebtoken.*;
-import io.jsonwebtoken.security.SignatureException;
+//  import io.jsonwebtoken.security.SignatureException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,13 +25,13 @@ public class JwtProvider {
     public String generateToken(Authentication authentication) {
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
 
-        return Jwts.builder().setSubject(userPrincipal.getEmail())
+        return Jwts.builder().setSubject(userPrincipal.getUsername())
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(new Date().getTime() + expiration*1000))
-                .signWith(SignatureAlgorithm.ES512, sercret)
+                .setExpiration(new Date(new Date().getTime() + expiration*10))
+                .signWith(SignatureAlgorithm.HS512, sercret)
                 .compact();
     }
-    public String getEmailUserfromToken(String token) {
+    public String getNameUserFromToken(String token) {
         return Jwts.parser().setSigningKey(sercret).parseClaimsJws(token)
                 .getBody()
                 .getSubject();

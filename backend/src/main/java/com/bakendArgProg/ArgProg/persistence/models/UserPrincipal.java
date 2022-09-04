@@ -10,14 +10,28 @@ import java.util.stream.Collectors;
 
 public class  UserPrincipal implements UserDetails {
     private String name;
-    private  String email;
+
+    private String lastName;
+    private String nameUser;
+
+    private  String emailUser;
     private String password;
+    private String titleUser;
+    private String descriptionUser;
+    private String imageUser;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrincipal(String name, String email, String password, Collection<? extends GrantedAuthority> authorities) {
+    public UserPrincipal(String name, String nameuser, String lastName, String titleUser, String descriptionUser,
+                         String imageUser, String emailUser, String password,
+                         Collection<? extends GrantedAuthority> authorities) {
         this.name = name;
-        this.email = email;
+        this.emailUser = emailUser;
+        this.lastName = lastName;
+        this.nameUser = nameuser;
+        this.titleUser = titleUser;
         this.password = password;
+        this.descriptionUser = descriptionUser;
+        this.imageUser = imageUser;
         this.authorities = authorities;
     }
 
@@ -25,7 +39,8 @@ public class  UserPrincipal implements UserDetails {
         List<GrantedAuthority> authorityList =
                 user.getRoles().stream().map(role -> new SimpleGrantedAuthority( role
                         .getRoleUser().name())).collect(Collectors.toList());
-        return new UserPrincipal(user.getName(), user.getPassword(), user.getEmailUser(), authorityList);
+        return new UserPrincipal(user.getName(), user.getNameUser(), user.getLastname(), user.getTitleUser(),
+                user.getDescriptionUser(), user.getImageuser(), user.getEmailUser(), user.getPassword(), authorityList);
     }
 
     @Override
@@ -40,7 +55,7 @@ public class  UserPrincipal implements UserDetails {
 //TODO: getter username no implementado
     @Override
     public String getUsername() {
-        return email;
+        return nameUser;
     }
 
     @Override
@@ -63,11 +78,32 @@ public class  UserPrincipal implements UserDetails {
         return true;
     }
 
-    public String getEmail() {
-        return email;
+    public String getLastName() {
+        return lastName;
     }
+
+   // public String getNameUser() {return nameUser;}
+
+    public String getEmailUser() {
+        return emailUser;
+    }
+
+    public String getImageUser() {
+        return imageUser;
+    }
+
 
     public String getName() {
         return name;
     }
+
+    public String getTitleUser() {
+        return titleUser;
+    }
+
+    public String getDescriptionUser() {
+        return descriptionUser;
+    }
+
+
 }

@@ -19,6 +19,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -45,14 +46,20 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
 @PostMapping("/new")
-public ResponseEntity<?> newUser(@Valid @RequestBody NewUser newUser, BindingResult bindingResult   ){
+public ResponseEntity<?> newuser(@Valid @RequestBody NewUser newUser, BindingResult bindingResult){
     if (bindingResult.hasErrors())
-        return new ResponseEntity<>("algo salio mal",HttpStatus.BAD_REQUEST);
-    if (userService.existByEmailUser(newUser.getNameUser()))
-        return new ResponseEntity<>("Email ya existe",HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("campos mal puestos",HttpStatus.BAD_REQUEST);
+
+    if (userService.existByEmail(newUser.getEmailUser())) {
+
+        return new ResponseEntity<>("Email ya existe", HttpStatus.BAD_REQUEST);
+    }
+    if (userService.existByNameUser(newUser.getNameUser()))
+        return new ResponseEntity<>("Username ya existe",HttpStatus.BAD_REQUEST);
     User user =
-            new User(newUser.getName(), newUser.getNameUser(), newUser.getEmail(),
-                    passwordEncoder.encode(newUser.getPassword()));
+            new User(newUser.getName(), newUser.getLastName(), newUser.getNameUser(),
+                    passwordEncoder.encode(newUser.getPassword()), newUser.getEmailUser(),
+                    newUser.getTitleUser(), newUser.getDescriptionUser(), newUser.getImageUser());
     Set<Role> roles = new HashSet<>();
     roles.add(roleService.getByRoleUser(RoleUser.ROLE_USER).get());
     if (newUser.getRoles().contains("admin"))
@@ -62,11 +69,11 @@ public ResponseEntity<?> newUser(@Valid @RequestBody NewUser newUser, BindingRes
     return new ResponseEntity<>("Usuario guardado", HttpStatus.CREATED);
 }
     @PostMapping("/login")
-    public ResponseEntity<JwtDto> login (@Valid @RequestBody LoginUserDto loginUser, BindingResult bindingResult){
+    public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUserDto loginUser, BindingResult bindingResult){
         if (bindingResult.hasErrors())
             return new ResponseEntity("algo salio mal",HttpStatus.BAD_REQUEST);
         Authentication authentication =
-                authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUser.getEmail(), loginUser.getPassword()));
+                authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUser.getNameUser(), loginUser.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtProvider.generateToken(authentication);
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();

@@ -5,19 +5,21 @@ import javax.validation.constraints.NotBlank;
 
 public class LoginUserDto {
 
-    @Email
+    //@Email
+    //@NotBlank
+    //private String emailUser;
     @NotBlank
-    private String email;
+    private  String nameUser;
 
     @NotBlank
     private String password;
 
-    public String getEmail() {
-        return email;
+    public String getNameUser() {
+        return nameUser;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
     }
 
     public String getPassword() {

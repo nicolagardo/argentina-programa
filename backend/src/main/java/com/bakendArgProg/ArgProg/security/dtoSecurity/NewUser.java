@@ -1,19 +1,31 @@
 package com.bakendArgProg.ArgProg.security.dtoSecurity;
 
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
 import java.util.Set;
 
 public class NewUser {
+
     @NotBlank
     private String name;
     @NotBlank
+    private String lastName;
+
+    @NotBlank
     private String nameUser;
     @Email
-    private String email;
+    private String emailUser;
     @NotBlank
     private String password;
+    @NotBlank
+    private String titleUser;
+    @NotBlank
+    private String descriptionUser;
+    @NotBlank
+    private String imageUser;
+
     private Set<String> roles = new HashSet<>();
 
     public String getName() {
@@ -24,6 +36,14 @@ public class NewUser {
         this.name = name;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getNameUser() {
         return nameUser;
     }
@@ -32,12 +52,12 @@ public class NewUser {
         this.nameUser = nameUser;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailUser() {
+        return emailUser;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
     }
 
     public String getPassword() {
@@ -46,6 +66,30 @@ public class NewUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getTitleUser() {
+        return titleUser;
+    }
+
+    public void setTitleUser(String titleUser) {
+        this.titleUser = titleUser;
+    }
+
+    public String getDescriptionUser() {
+        return descriptionUser;
+    }
+
+    public void setDescriptionUser(String descriptionUser) {
+        this.descriptionUser = descriptionUser;
+    }
+
+    public String getImageUser() {
+        return imageUser;
+    }
+
+    public void setImageUser(String imageUser) {
+        this.imageUser = imageUser;
     }
 
     public Set<String> getRoles() {
