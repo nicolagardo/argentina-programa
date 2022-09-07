@@ -1,14 +1,25 @@
 export type Roles = 'ADMIN' | 'VISITOR';
 
-export interface User {
+export class UserLogin {
     
-    emailUser: string;
+    nameUser: string;
     password: string
+    constructor(u:string, p:string) {
+        this.nameUser = u;
+        this.password = p;
+    }
+   
 
 }
-export interface UserResponse {
+export class UserResponse {
     message: string;
     token: string;
-    userId: string;
-    role: Roles;
+    userName: string;
+    authorities: string[] ;
+    constructor(m:string, t:string, u:string, a:string[]) {
+        this.message = m;
+        this.token = t;
+        this.userName = u;
+        this.authorities = a;
+    }
 }
