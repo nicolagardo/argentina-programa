@@ -1,7 +1,7 @@
 package com.bakendArgProg.ArgProg.services;
 
-import com.bakendArgProg.ArgProg.models.Experience;
-import com.bakendArgProg.ArgProg.repository.ExperienceRepo;
+import com.bakendArgProg.ArgProg.persistence.models.Experience;
+import com.bakendArgProg.ArgProg.persistence.repository.ExperienceRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
