@@ -1,7 +1,7 @@
 package com.bakendArgProg.ArgProg.services;
 
-import com.bakendArgProg.ArgProg.models.Skill;
-import com.bakendArgProg.ArgProg.repository.SkillRepo;
+import com.bakendArgProg.ArgProg.persistence.models.Skill;
+import com.bakendArgProg.ArgProg.persistence.repository.SkillRepo;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

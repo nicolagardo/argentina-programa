@@ -1,25 +1,33 @@
 package com.bakendArgProg.ArgProg.services;
 
 import com.bakendArgProg.ArgProg.exception.UserNotFoundException;
-import com.bakendArgProg.ArgProg.models.User;
-import com.bakendArgProg.ArgProg.repository.UserRepo;
+import com.bakendArgProg.ArgProg.persistence.models.User;
+import com.bakendArgProg.ArgProg.persistence.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 @Transactional
 public class UserService {
 
-    private final UserRepo userRepo;
-
-
     @Autowired
+    UserRepo userRepo;
+
+
+
+
+    /*@Autowired
     public UserService(UserRepo userRepo) {
         this.userRepo = userRepo;
 
     }
+
+     */
+
+
 
 
     public User addUser(User user){
@@ -38,6 +46,17 @@ public class UserService {
     public User getUser(Long id) {
 
         return userRepo.findById(id).orElseThrow(() -> new UserNotFoundException("Usuario no encontrado"));
+    }
+    public Optional<User> getByNameUser(String userName) {return userRepo.findAllByNameUser(userName);}
+    public boolean existByNameUser(String nameUser) {return userRepo.existsByNameUser(nameUser);}
+    public Optional<User> getByEmail(String email) {
+        return userRepo.findByEmailUser(email);
+    }
+    public boolean existByEmail(String emailUser ) {
+        return userRepo.existsByEmailUser(emailUser);
+    }
+    public void save(User user) {
+        userRepo.save(user);
     }
 
 }

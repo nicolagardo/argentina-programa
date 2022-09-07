@@ -1,6 +1,6 @@
 package com.bakendArgProg.ArgProg.controllers;
 
-import com.bakendArgProg.ArgProg.models.Education;
+import com.bakendArgProg.ArgProg.persistence.models.Education;
 import com.bakendArgProg.ArgProg.services.EducationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
