@@ -18,17 +18,30 @@
 </div> -->
 <div class="login form">
   <mat-card>
-    <mat-card-content>
+    <mat-card-content >
       <h1>LOGIN</h1>
       
-      <mat-form-field class="full-width-input">
-        <input type="text" [name]="nameUser" matInput placeholder="username" required>
-      </mat-form-field>
-      <mat-form-field class="full-width-input">
-        <input type="password"[name]="password" matInput placeholder="password" required>
-      </mat-form-field>
-      <button type="submit" (click)="onLogin()" mat-raised-button color="primary"> Login</button>
+      <!-- <form  #f="ngForm" (ngSubmit)="test()"*/> -->
       
+      <form #f="ngForm">
+
+        <mat-form-field class="full-width-input" id="f">
+          <input type="text" [name]="nameUser" matInput placeholder="Username" 
+          [(ngModel)]="nameUser" required>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input type="password"[name]="password" matInput placeholder="Password"
+          [(ngModel)]="password" required>
+        </mat-form-field>
+        <button type="submit" (click)="onLogin()" mat-raised-button color="primary" [disabled]="!f.valid"> Login</button>
+      </form>
+    
+      
+        
+          <div *ngIf="f.submitted && isLoggedFail" style="background-color:#f5f5f5; color:red" color="primary">
+            {{erroMsj}}
+          </div>
+        
         <a routerLink="/home" type="button" color="primary">Volver al Home</a>
       
     </mat-card-content>

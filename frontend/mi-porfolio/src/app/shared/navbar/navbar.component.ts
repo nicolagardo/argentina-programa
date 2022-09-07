@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,11 +7,18 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  @Input() isAdmin!:boolean;
+  isAdmin:boolean = false;
   @Output() toggleSide = new  EventEmitter<void>();
-  constructor() { }
+  constructor(    
+    private tokenService: TokenService,
+    ) { }
 
   ngOnInit(): void {
+
+    if(this.tokenService.getToken()){
+      this.isAdmin= true;
+
+    }
   }
   logout() :void{
     console.log("LogOut");
@@ -18,7 +26,11 @@ export class NavbarComponent implements OnInit {
     
   }
   changeAdmin():void{
-    this.isAdmin= !this.isAdmin
+    
+  }
+  logOut():void {
+    this.tokenService.logOut();
+    //this.changeAdmin();
   }
 
 
