@@ -35,6 +35,8 @@ export class LoginComponent implements OnInit {
       if (this.tokenService.getToken()) {
         this.isLogged = true;
         this.isLoggedFail = false;
+        console.log("Logueado");
+        
         
       }
     //}
@@ -55,17 +57,25 @@ export class LoginComponent implements OnInit {
         this.isLogged = true;
         this.isLoggedFail = false;
         this.tokenService.setToken(data.token);
+        this.ruta.navigate(['/'])
         
       },
       err => {
         this.isLogged = false;
         this.isLoggedFail = true;
         this.erroMsj = err.error.message;
-        console.log(err);
+        console.log(this.erroMsj);
         
       }
     )
     
+  }
+  test():void{
+
+    console.log('====================================');
+    console.log(this.nameUser);
+    console.log(this.password);
+    console.log('====================================');
   }
 
 }

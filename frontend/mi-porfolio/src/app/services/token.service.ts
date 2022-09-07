@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 const TOKEN_KEY = 'AuthToken';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' 
 })
 export class TokenService {
   roles: Array<string> = [];

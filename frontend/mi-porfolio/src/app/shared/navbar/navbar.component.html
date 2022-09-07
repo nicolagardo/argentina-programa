@@ -32,9 +32,9 @@
           
           
           
-          <ng-container *ngIf="isAdmin; else viewAdmin">
+          <ng-container *ngIf="!isAdmin; else viewLogOut">
             <li class="nav-item">
-              <a class="nav-link active px-4" type="submit"(click)="changeAdmin()" aria-current="page"  routerLink="/login"><button mat-icon-button >Login <mat-icon>login</mat-icon></button></a>
+              <a class="nav-link active px-4" type="submit" aria-current="page"  routerLink="/login"><button mat-icon-button >Login <mat-icon>login</mat-icon></button></a>
             </li>
 
           </ng-container>
@@ -47,9 +47,9 @@
     </div>
     
   </nav>
-  <ng-template #viewAdmin>
+  <ng-template #viewLogOut>
     <li class="nav-item">
-      <a class="nav-link active px-4" type="submit" aria-current="page"  (click)="logout()"  (click)="isAdmin = !isAdmin"><button mat-icon-button >
+      <a class="nav-link active px-4" type="submit" aria-current="page"  (click)="logOut()"  (click)="isAdmin = !isAdmin"><button mat-icon-button >
         Logout <mat-icon>logout</mat-icon>
       </button></a>
     </li>
