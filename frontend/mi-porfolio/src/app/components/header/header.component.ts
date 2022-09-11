@@ -1,4 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,28 @@ import { Component, OnInit, Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Output() isAdmin!:boolean
-  constructor() { }
+  @Input() isAdminHeader!:boolean;
+  @Output() _isAdmin$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+
+  constructor(private tokenService: TokenService) { }
 
   ngOnInit(): void {
+    this.tokenOn();
+
+    
+  }
+
+  tokenOn(): void{
+    if (this.tokenService.getToken()) {
+     this._isAdmin$ =  new BehaviorSubject<boolean>(true);
+     this.isAdminHeader = true;
+    }
+    
+  }
+  hola():void{
+    console.log('====================================');
+    console.log('hola');
+    console.log('====================================');
   }
 
 }

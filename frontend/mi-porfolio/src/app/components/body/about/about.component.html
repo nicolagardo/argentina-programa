@@ -13,15 +13,15 @@
                 <mat-card>
 
                     <div class="col-8">
-                        <ng-container *ngIf="isAdmin">
+                        <ng-container >
                             <h1>{{usuario.name}}</h1>
                             <h1 >{{usuario.lastname}}</h1>
                             <h2>{{usuario.descriptionUser}}</h2>
                         </ng-container>
                     </div>
                     
-                    <div class="col">
-                        <app-botonera [about]="false"></app-botonera>
+                    <div class="col" *ngIf="isAdmin">
+                        <app-botonera (click)="hola()"></app-botonera>
                     </div>
                 </mat-card>
             </div>

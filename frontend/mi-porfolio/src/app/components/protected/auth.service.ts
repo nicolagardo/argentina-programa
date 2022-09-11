@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
-import { User, UserResponse } from 'src/app/interfaces/user';
+import { UserLogin, UserResponse } from 'src/app/interfaces/user';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
 
-  login(authData: User):Observable<UserResponse | void>{
+  login(authData: UserLogin):Observable<UserResponse | void>{
     return this.http
     .post<UserResponse>(`${environment.API_URL}/user/auth`, authData)
     .pipe(

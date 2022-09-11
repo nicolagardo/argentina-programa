@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  @Input() isAdmin!: boolean
+  @Input() isAdmin!: boolean;
   constructor() { }
   projects:any =[]
 

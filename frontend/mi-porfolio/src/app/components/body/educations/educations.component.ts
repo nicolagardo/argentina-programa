@@ -8,7 +8,7 @@ import { EducationService } from 'src/app/services/education/education.service';
 })
 export class EducationsComponent implements OnInit {
   educations: any = []
-  @Input() isAdmin!: boolean
+  @Input() isAdmin: boolean = false;
   // educations : any =[
   //   {escuela: "comercio",
   //   ano: "2000"},
@@ -16,9 +16,12 @@ export class EducationsComponent implements OnInit {
   //   ano: "2020"}]
   
   //   data = Object.values(this.educations)
-  constructor(private servHttp: EducationService) { }
+  constructor(
+    private servHttp: EducationService
+    ) { }
 
   ngOnInit(): void {
+    this.isAdmin;
     this.servHttp.getDataEd().subscribe(
       (response:any) => {
         this.educations = response;
