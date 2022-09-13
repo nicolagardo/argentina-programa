@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AppComponent } from 'src/app/app.component';
 import { ServiceService } from 'src/app/services/service.service';
+import { BotoneraComponent } from 'src/app/shared/botonera/botonera.component';
 
 
 @Component({
@@ -12,13 +13,16 @@ import { ServiceService } from 'src/app/services/service.service';
 export class AboutComponent implements OnInit {
 usuario: any =[]
 @Input() isAdmin!: boolean
-@Input() about!: boolean
+//@Input() about!: boolean
 _isAdmin$!: boolean;
 @Input() edit():void{
 
 }
 
-  constructor( private serviceHttp: ServiceService) { }
+  constructor( 
+    private serviceHttp: ServiceService,
+    private btn: BotoneraComponent
+    ) { }
 
   ngOnInit(): void {
     this.serviceHttp.getData().subscribe((response:any) => {
@@ -30,6 +34,7 @@ _isAdmin$!: boolean;
     console.log('====================================');
     console.log('hola about');
     console.log('====================================');
+    this.btn.edit();
   }
 
 }

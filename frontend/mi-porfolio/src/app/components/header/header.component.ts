@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TokenService } from 'src/app/services/token.service';
+import { BotoneraComponent } from 'src/app/shared/botonera/botonera.component';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,16 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+  
   @Input() isAdminHeader!:boolean;
   @Output() _isAdmin$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
-
-  constructor(private tokenService: TokenService) { }
+  
+  
+  constructor(
+    private tokenService: TokenService,
+    //private btn: BotoneraComponent
+    ) { }
 
   ngOnInit(): void {
     this.tokenOn();
@@ -30,6 +37,9 @@ export class HeaderComponent implements OnInit {
     console.log('====================================');
     console.log('hola');
     console.log('====================================');
+  }
+  onEdit():void{
+    //this.btn.oNedit$;
   }
 
 }

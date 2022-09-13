@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-botonera',
@@ -11,6 +11,7 @@ export class BotoneraComponent implements OnInit {
   constructor() { }
   @Input() about!: boolean;
   @Input() isAdmin!: boolean;
+  @Output() onEdit$!: EventEmitter<boolean>;
   ngOnInit(): void {
     
   }
@@ -19,6 +20,7 @@ export class BotoneraComponent implements OnInit {
     console.log('====================================');
     console.log('edit');
     console.log('====================================');
+    //this.oNedit$.emit();
 
   }
   delete():void{
