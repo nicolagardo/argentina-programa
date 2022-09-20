@@ -21,7 +21,7 @@
         </div>
         <div class="col">
           <ng-container *ngIf="isAdmin">
-            <app-botonera></app-botonera>
+            <app-botonera (onEdit)="edit($event)"></app-botonera>
           </ng-container>
         </div>
         <mat-card-footer>

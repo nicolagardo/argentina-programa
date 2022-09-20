@@ -27,6 +27,7 @@ import { EducationsComponent } from './components/body/educations/educations.com
 import { BotoneraComponent } from './shared/botonera/botonera.component';
 import { BotonAddComponent } from './shared/boton-add/boton-add.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     EducationsComponent,
     BotoneraComponent,
     BotonAddComponent,
+    SpinnerComponent,
 
   ],
   imports: [

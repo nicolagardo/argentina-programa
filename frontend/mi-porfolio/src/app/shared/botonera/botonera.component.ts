@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-botonera',
@@ -6,12 +6,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   <button mat-flat-button (click)="delete()"><mat-icon color="warn">delete</mat-icon></button>`,
   styleUrls: ['./botonera.component.css']
 })
-export class BotoneraComponent implements OnInit {
+export class BotoneraComponent implements OnInit, OnChanges{
   
-  constructor() { }
+  constructor() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    this.edit()
+  }
   @Input() about!: boolean;
   @Input() isAdmin!: boolean;
-  @Output() onEdit$!: EventEmitter<boolean>;
+  @Output() onEdit = new EventEmitter<boolean>();
+  bul!:boolean;
+  strinn:string="strinn"
   ngOnInit(): void {
     
   }
@@ -20,7 +25,8 @@ export class BotoneraComponent implements OnInit {
     console.log('====================================');
     console.log('edit');
     console.log('====================================');
-    //this.oNedit$.emit();
+    this.bul = !this.bul? true: false;
+    this.onEdit.emit(this.bul);
 
   }
   delete():void{

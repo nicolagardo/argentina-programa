@@ -14,14 +14,22 @@
 
                     <div class="col-8">
                         <ng-container >
-                            <h1>{{usuario.name}}</h1>
-                            <h1 >{{usuario.lastname}}</h1>
-                            <h2>{{usuario.descriptionUser}}</h2>
+                            <h1 name="name" #name>{{usuario.name}}</h1>
+                            <input type="text" #inpu>
+                            <!-- <h1 name="name2" #name2>name2</h1> -->
+                            <h1 #lastname>{{usuario.lastname}}</h1>
+                            <h2 #descriptionUser>{{usuario.descriptionUser}}</h2>
                         </ng-container>
                     </div>
                     
                     <div class="col" *ngIf="isAdmin">
-                        <app-botonera (click)="hola()" [about]="true"></app-botonera>
+                        <app-botonera (onEdit)="hola($event)" [about]="true" ></app-botonera>
+                    </div>
+                    <div *ngIf="outputdelboton">
+                            <ng-container>
+                                <h1>hola</h1>
+                                <input type="text" [value]="inpu">
+                            </ng-container>
                     </div>
                 </mat-card>
             </div>

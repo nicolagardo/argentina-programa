@@ -11,6 +11,7 @@ import { ServiceService } from 'src/app/services/service.service';
 export class ExperiencesComponent implements OnInit {
 experiencias: any =[]
 @Input() isAdmin!: boolean
+bul!: boolean;
 
   constructor(private servHttp: ExperiencesService) { }
   
@@ -20,6 +21,13 @@ experiencias: any =[]
         this.experiencias = response;
       }
     )
+  }
+
+  edit(valor: boolean):void{
+    this.bul = valor;
+    console.log(this.bul);
+    
+
   }
 
 }

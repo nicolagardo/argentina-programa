@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TokenService } from 'src/app/services/token.service';
 import { BotoneraComponent } from 'src/app/shared/botonera/botonera.component';
+import { SpinnerService } from 'src/app/shared/spinner/spinner.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   
   @Input() isAdminHeader!:boolean;
-  @Output() _isAdmin$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  //@Output() _isAdmin$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   
   
   constructor(
@@ -28,7 +29,7 @@ export class HeaderComponent implements OnInit {
 
   tokenOn(): void{
     if (this.tokenService.getToken()) {
-     this._isAdmin$ =  new BehaviorSubject<boolean>(true);
+     //this._isAdmin$ =  new BehaviorSubject<boolean>(true);
      this.isAdminHeader = true;
     }
     
