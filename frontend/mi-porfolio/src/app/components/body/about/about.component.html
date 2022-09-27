@@ -13,24 +13,36 @@
                 <mat-card>
 
                     <div class="col-8">
-                        <ng-container >
-                            <h1 name="name" #name>{{usuario.name}}</h1>
-                            <input type="text" #inpu>
-                            <!-- <h1 name="name2" #name2>name2</h1> -->
-                            <h1 #lastname>{{usuario.lastname}}</h1>
-                            <h2 #descriptionUser>{{usuario.descriptionUser}}</h2>
+                        <ng-container *ngIf="outputdelboton; else edit">
+                            <h1>{{usuario.titleUser}}</h1>
+                            <h2>{{usuario.name}}</h2>
+                            <h2>{{usuario.lastname}}</h2>
+                            <p>{{usuario.descriptionUser}}</p>
                         </ng-container>
+                        <ng-container class="col" *ngIf="isAdmin">
+                            <app-botonera (onEdit)="hola($event)" [about]="true" ></app-botonera>
+                        </ng-container>
+                        <ng-template #edit>
+                            <form #formEdit="ngForm" (ngSubmit)="onSubmit(formEdit.value)">
+                                <pre>{{formEdit.value | json}}</pre>
+                               <label >Titulo</label>
+                               <input class="my-2" name="titleUser" type="text" [(ngModel)]="usuario.titleUser"> 
+                               <br>
+                               <label >Nombre</label>
+                               <input class="my-2" type="text" id="name" name="name" [(ngModel)]="usuario.name"> 
+                               <br>
+                               <label >Apellido</label>
+                               <input class="my-2" type="text"name="lastname" [(ngModel)]="usuario.lastname"> 
+                               <br>
+                               <label >Descripción</label>
+                               <textarea class="my-2" rows="5em" cols="50" name="descriptionUser" [(ngModel)]="usuario.descriptionUser"> </textarea>
+                               <button mat-flat-button (click)="cancel()"><mat-icon color="primary">cancel</mat-icon>Cancel</button>
+                               <button mat-flat-button type="submit"><mat-icon color="primary">save</mat-icon>Save</button>
+                            </form>
+                        </ng-template>
                     </div>
                     
-                    <div class="col" *ngIf="isAdmin">
-                        <app-botonera (onEdit)="hola($event)" [about]="true" ></app-botonera>
-                    </div>
-                    <div *ngIf="outputdelboton">
-                            <ng-container>
-                                <h1>hola</h1>
-                                <input type="text" [value]="inpu">
-                            </ng-container>
-                    </div>
+                    
                 </mat-card>
             </div>
         

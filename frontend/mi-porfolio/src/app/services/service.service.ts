@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
+import { About } from '../interfaces/user';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,9 @@ export class ServiceService {
 
    getData(): any {
     return this.http.get(`${this.api_url}/user/id/1`)
+   }
+   updateAbout(aboutUser: About):Observable<About> {
+     return this.http.put<About>(`${this.api_url}/user/update`, aboutUser);
    }
    
    getDataEd(): any {

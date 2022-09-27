@@ -1,5 +1,12 @@
 export type Roles = 'ADMIN' | 'VISITOR';
 
+export interface About {
+    titleUser: string;
+    name: string;
+    lastName: string;
+    descriptionUser: string;
+    //imageUser: string;
+}
 export class UserLogin {
     
     nameUser: string;

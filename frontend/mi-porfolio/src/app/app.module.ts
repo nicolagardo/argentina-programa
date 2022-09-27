@@ -28,6 +28,7 @@ import { BotoneraComponent } from './shared/botonera/botonera.component';
 import { BotonAddComponent } from './shared/boton-add/boton-add.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { interceptorProvider } from './components/protected/interceptor-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,7 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
     MatProgressBarModule,
     
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
