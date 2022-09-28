@@ -8,6 +8,7 @@ import { EducationService } from 'src/app/services/education/education.service';
 })
 export class EducationsComponent implements OnInit {
   educations: any = []
+  vari:boolean = false;
   @Input() isAdmin: boolean = false;
   // educations : any =[
   //   {escuela: "comercio",
@@ -27,6 +28,13 @@ export class EducationsComponent implements OnInit {
         this.educations = response;
       }
     )
+  }
+  onAddEdu():void{
+    console.log('add->');
+    
+  }
+  createEdu(education:any): any{
+    this.servHttp.postDataEdu(education);
   }
 
 }

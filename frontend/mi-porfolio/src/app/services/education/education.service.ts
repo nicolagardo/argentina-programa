@@ -13,7 +13,7 @@ export class EducationService {
     return this.http.get(`${this.api_url}/educations`)
    }
    
-  postDataEx(dataBody: any): any {
+  postDataEdu(dataBody: any): any {
     return this.http.post(`${this.api_url}/educations`, dataBody)
   }
   putDataEx(dataBody: any): any {

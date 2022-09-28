@@ -5,7 +5,7 @@
     </div>
     <div class="col-4">
       <ng-container *ngIf="isAdmin">
-        <app-boton-add></app-boton-add>
+        <app-boton-add (click)="onAddEdu()" (click)="vari = true"></app-boton-add>
       </ng-container>
     </div>
   </div>
@@ -19,6 +19,9 @@
         <p>Final: {{ed.fechaEndEdu}}</p>
         <p>Titulo: {{ed.descriptionEdu}}</p>
       </div>
+      <ng-container *ngIf="vari; else addEdu">
+        <h1>No tocaste el boton +</h1>
+      </ng-container>
       
       <div class="col">
         <ng-container *ngIf="isAdmin">
@@ -27,4 +30,17 @@
       </div>
     </mat-card>
   </div>
+  <ng-template #addEdu>
+    <form #formAdd="ngForm" (ngSubmit)="onAddEdu()">
+      <label for="">Titulo</label>
+      <input type="text" name="titleUser" [(ngModel)]="educations.tituloEdu">
+      <label for="">Fecha Inicio</label>
+      <input type="text" name="fechaInitEdu" [(ngModel)]="educations.fechaInitEdu">
+      <label for="">Fecha Fin</label>
+      <input type="text" name="fechaEndEdu" [(ngModel)]="educations.fechaEndEdu">
+      <label for="">Descripción</label>
+      <input type="text" name="descriptionEdu" [(ngModel)]="educations.descriptionEdu">
+      <button type="submit" >Save</button>
+    </form>
+  </ng-template>
 </div>
